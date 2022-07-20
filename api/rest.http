@@ -1,0 +1,15 @@
+
+### api test 
+GET http://localhost:8000/
+
+
+### api test 
+POST http://localhost:8000/api/v1/user/
+Content-Type: application/json
+
+{
+    "firstName":"Anmol",
+    "lastName":"bhat",
+    "email":"anmol@anmol.com",
+    "password":"Anmol"
+}
