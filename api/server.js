@@ -16,19 +16,11 @@ app.use(cors());
 import userRouters from "./src/routers/userRouters.js";
 app.use("/api/v1/user", userRouters);
 
-app.use("/api/v1/user", () => {
+app.use("/", (req, res) => {
   res.json({
     status: "success",
     message: "in the API base",
   });
-});
-
-app.use("/", (req, res) => {
-  try {
-    res.send("<h1>hey...</h1>");
-  } catch (error) {
-    next(error);
-  }
 });
 
 app.use((error, req, res, next) => {
