@@ -1,16 +1,25 @@
 
 ### api test 
-GET http://localhost:8000/api/v1/user/62d88d2f9a01fff714932f1e
+GET http://localhost:8000/api/v1/user/
 
-
-
-### api test 
+### POST user
 POST http://localhost:8000/api/v1/user/
 Content-Type: application/json
 
 {
     "firstName":"Anmol",
     "lastName":"bhat",
-    "email":"anmol@anmol.com",
+    "email":"asd@asdasd",
+    "password":"Anmol"
+}
+
+
+### POST new user
+POST http://localhost:8000/api/v1/user/login
+Content-Type: application/json
+
+{
+    
+    "email":"asd@asdasd",
     "password":"Anmol"
 }

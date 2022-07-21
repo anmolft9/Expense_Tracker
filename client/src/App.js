@@ -5,6 +5,8 @@ import { Registration } from "./pages/Registration";
 
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { useRef, useState } from "react";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 function App() {
   const [userForm, setUserForm] = useState([]);
@@ -28,6 +30,7 @@ function App() {
           <Route path="/dashboard" element={<Dashboard />} />
         </Routes>
       </BrowserRouter>
+      <ToastContainer />
     </div>
   );
 }

@@ -1,8 +1,10 @@
 import React, { useState } from "react";
-import Button from "react-bootstrap/Button";
+import { Button, Alert } from "react-bootstrap";
 import Form from "react-bootstrap/Form";
 import { Link } from "react-router-dom";
+import { toast } from "react-toastify";
 import { MainLayout } from "../components/Layout/MainLayout";
+import { postNewUser } from "../helpers/axiosHelper";
 
 const initialState = {
   firstName: "",
@@ -14,6 +16,7 @@ const initialState = {
 
 export const Registration = ({ addUser }) => {
   const [registerForm, setRegisterForm] = useState({});
+  const [resp, setResp] = useState({});
 
   const handleOnChange = (e) => {
     const { name, value } = e.target;
@@ -22,18 +25,34 @@ export const Registration = ({ addUser }) => {
   };
   //   console.log(register);
 
-  const handleOnSubmit = (e) => {
+  const handleOnSubmit = async (e) => {
     e.preventDefault();
-    addUser(registerForm);
-    setRegisterForm(initialState);
+    console.log(registerForm);
+
+    const { confirmPassword, ...rest } = registerForm;
+    if (confirmPassword !== rest.password) {
+      return toast("password doesnot match");
+      // return alert("password doesnot match");
+    }
+
+    const { status, message } = await postNewUser(rest);
+    setResp({ status, message });
+
+    toast[status](message);
+    status === "success" && setRegisterForm(initialState);
   };
 
   return (
     <MainLayout>
       <div className="registration-page d-flex justify-content-center mt-3 mb-5">
         <div className="registration-form border p-5 shadow p-5 bg-body rounded">
-          <h3 className="text-center mb-3">Sign Up</h3>
+          <h3 className="text-center mb-3">Registration</h3>
           <Form onSubmit={handleOnSubmit}>
+            {resp.message && (
+              <Alert variant={resp.status === "success" ? "success" : "danger"}>
+                {resp.message}
+              </Alert>
+            )}
             <Form.Group
               className="mb-3"
               controlId="formBasicPassword"
@@ -103,7 +122,7 @@ export const Registration = ({ addUser }) => {
             </Form.Group>
 
             <Button variant="primary" type="submit ">
-              Login
+              Sign Up
             </Button>
 
             <div className="mt-5 text-end">

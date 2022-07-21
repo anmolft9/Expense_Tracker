@@ -1,18 +1,27 @@
 import React, { useRef } from "react";
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { MainLayout } from "../components/Layout/MainLayout";
+import { toast } from "react-toastify";
+import { loginUser } from "../helpers/axiosHelper";
 
 export const Login = () => {
   const emailRef = useRef();
   const passwordRef = useRef();
+  const navigate = useNavigate();
 
-  const handleOnSubmit = (e) => {
+  const handleOnSubmit = async (e) => {
     e.preventDefault();
     const email = emailRef.current.value;
     const password = passwordRef.current.value;
-    console.log(email, password);
+    const { status, message, user } = await loginUser({ email, password });
+    toast[status](message);
+
+    if (status === "success") {
+      window.sessionStorage.setItem("user", JSON.stringify(user));
+    }
+    navigate("/dashboard");
   };
 
   return (
