@@ -19,7 +19,7 @@ export const TransactionTable = () => {
             <td>1</td>
             <td>22/07</td>
             <td>Ipad</td>
-            <td>-1500</td>
+            <td className="text-danger">-1500</td>
             <td></td>
           </tr>
           <tr>
@@ -27,7 +27,7 @@ export const TransactionTable = () => {
             <td>22/07</td>
             <td>Salaru</td>
             <td></td>
-            <td>1500</td>
+            <td className="">1500</td>
           </tr>
         </tbody>
       </Table>

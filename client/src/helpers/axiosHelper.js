@@ -5,7 +5,7 @@ const userEP = rootURL + "/api/v1/user";
 export const postNewUser = async (obj) => {
   try {
     const response = await axios.post(userEP, obj);
-    console.log(response);
+    // console.log(response);
     return response.data;
   } catch (error) {
     return {
@@ -17,7 +17,7 @@ export const postNewUser = async (obj) => {
 export const loginUser = async (obj) => {
   try {
     const response = await axios.post(userEP + "/login", obj);
-    console.log(response);
+    // console.log(response);
     return response.data;
   } catch (error) {
     return {
