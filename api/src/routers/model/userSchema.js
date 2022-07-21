@@ -2,6 +2,12 @@ import mongoose from "mongoose";
 
 const userSchema = new mongoose.Schema(
   {
+    ///for verification
+    status: {
+      type: String,
+      default: "inactive",
+    },
+
     firstName: {
       type: String,
       require: true,
@@ -16,6 +22,8 @@ const userSchema = new mongoose.Schema(
       type: String,
       require: true,
       maxlength: 100,
+      unique: true,
+      index: 1,
     },
     password: {
       type: String,
@@ -28,4 +36,4 @@ const userSchema = new mongoose.Schema(
   }
 );
 
-export default mongoose.model("User", userSchema); ///tasks
+export default mongoose.model("User", userSchema); ///users

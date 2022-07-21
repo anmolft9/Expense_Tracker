@@ -1,6 +1,7 @@
 
 ### api test 
-GET http://localhost:8000/api/v1/user/
+GET http://localhost:8000/api/v1/user/62d88d2f9a01fff714932f1e
+
 
 
 ### api test 
