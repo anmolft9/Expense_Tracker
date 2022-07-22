@@ -1,5 +1,8 @@
 import express from "express";
-import { addTransaction } from "./model/transaction/TransactionModel.js";
+import {
+  addTransaction,
+  removeTransaction,
+} from "./model/transaction/TransactionModel.js";
 const router = express.Router();
 
 router.post("/", async (req, res, next) => {

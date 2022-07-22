@@ -31,7 +31,7 @@ POST http://localhost:8000/api/v1/user/transaction
 Content-Type: application/json
 
 {
-    "_id":"asd@asdasd22",
+    "_id":"617364406173646173643333",
     "type":"income",
     "title":"shopping gadgets",
     "amount":2000
@@ -44,6 +44,15 @@ Content-Type: application/json
 GET http://localhost:8000/api/v1/user/transaction
 Authorization: "617364406173646173643232"
 
+
+### delete  transaction
+DELETE  http://localhost:8000/api/v1/user/transaction
+Content-Type: application/json
+
+{
+    "_id":"617364406173646173643333"
+    
+}
 
 
 

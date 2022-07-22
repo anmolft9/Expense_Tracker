@@ -14,7 +14,7 @@ const initialState = {
   confirmPassword: "",
 };
 
-export const Registration = ({ addUser }) => {
+export const Registration = ({}) => {
   const [registerForm, setRegisterForm] = useState({});
   const [resp, setResp] = useState({});
 
@@ -27,7 +27,7 @@ export const Registration = ({ addUser }) => {
 
   const handleOnSubmit = async (e) => {
     e.preventDefault();
-    console.log(registerForm);
+    // console.log(registerForm);
 
     const { confirmPassword, ...rest } = registerForm;
     if (confirmPassword !== rest.password) {
