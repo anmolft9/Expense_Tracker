@@ -38,4 +38,22 @@ router.get("/", async (req, res, next) => {
   }
 });
 
+router.delete("/", async (req, res, next) => {
+  try {
+    // console.log(req.body);
+    const { _id } = req.body;
+    const result = await removeTransaction(_id);
+
+    // console.log(result);
+    // console.log();
+    res.json({
+      status: "success",
+      message: "deleted",
+      result,
+    });
+  } catch (error) {
+    console.log(error);
+  }
+});
+
 export default router;
