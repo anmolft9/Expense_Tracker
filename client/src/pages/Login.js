@@ -6,7 +6,7 @@ import { MainLayout } from "../components/Layout/MainLayout";
 import { toast } from "react-toastify";
 import { loginUser } from "../helpers/axiosHelper";
 
-export const Login = () => {
+export const Login = ({ setLoggedIn }) => {
   const emailRef = useRef();
   const passwordRef = useRef();
   const navigate = useNavigate();
@@ -19,9 +19,11 @@ export const Login = () => {
     toast[status](message);
 
     if (status === "success") {
+      console.log(user);
       window.sessionStorage.setItem("user", JSON.stringify(user));
+      setLoggedIn(true);
+      navigate("/dashboard");
     }
-    navigate("/dashboard");
   };
 
   return (

@@ -19,7 +19,7 @@ router.post("/login", async (req, res, next) => {
       });
     }
     res.json({
-      status: "success",
+      status: "failed",
       message: "mission failed",
     });
   } catch (error) {
@@ -41,7 +41,7 @@ router.post("/", async (req, res, next) => {
           result,
         })
       : res.json({
-          status: "success",
+          status: "failed",
           message: "sorry",
           result,
         });

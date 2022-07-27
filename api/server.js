@@ -16,7 +16,7 @@ app.use(cors());
 import userRouters from "./src/routers/userRouters.js";
 import transactionRouter from "./src/routers/transactionRouter.js";
 app.use("/api/v1/user", userRouters);
-app.use("/api/v1/user/transaction", transactionRouter);
+app.use("/api/v1/transaction", transactionRouter);
 
 app.use("/", (req, res) => {
   res.json({
@@ -26,7 +26,7 @@ app.use("/", (req, res) => {
 });
 
 app.use((error, req, res, next) => {
-  //   console.log(error, "error");
+  console.log(error, "error");
   const status = error.status || 500;
   res.status(status).json({
     status: "error",

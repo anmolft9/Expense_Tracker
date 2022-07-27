@@ -2,7 +2,7 @@ import mongoose from "mongoose";
 
 const transactionSchema = new mongoose.Schema(
   {
-    _id: {
+    userId: {
       type: mongoose.Types.ObjectId,
       ref: "user",
       require: true,
@@ -17,6 +17,10 @@ const transactionSchema = new mongoose.Schema(
     },
     amount: {
       type: Number,
+      require: true,
+    },
+    date: {
+      type: Date,
       require: true,
     },
   },
