@@ -10,7 +10,7 @@ import {
   postTransactions,
 } from "../helpers/axiosHelper.js";
 
-export const Dashboard = () => {
+export const Dashboard = ({ isLoggedIn }) => {
   const [transaction, setTransaction] = useState([]);
 
   useEffect(() => {
@@ -46,7 +46,7 @@ export const Dashboard = () => {
   };
 
   return (
-    <MainLayout>
+    <MainLayout isLoggedIn={isLoggedIn}>
       <Container>
         <Row>
           <h3 className="mt-4">Dashboard</h3>

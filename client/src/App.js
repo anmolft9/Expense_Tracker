@@ -29,7 +29,10 @@ function App() {
             path="/registration"
             element={<Registration addUser={addUser} />}
           />
-          <Route path="/dashboard" element={<Dashboard />} />
+          <Route
+            path="/dashboard"
+            element={<Dashboard isLoggedIn={isLoggedIn} />}
+          />
         </Routes>
       </BrowserRouter>
       <ToastContainer />
